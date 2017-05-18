@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   resources :posts
   resources :comments
     
-  post "post/:post_id/like" => "likes#like_toggle"
   
   
   

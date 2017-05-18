@@ -17,20 +17,10 @@
         <td><%= post.title %></td>
         <td><%= post.content %></td>
         
-        <td><%= post.likes.size %>명이 좋아합니다</td>
-      
-        
-        <td>
-          <% if current_user.is_like?(post) %>
-            <form action="/post/<%=post.id%>/like" method="post">
-            <button>좋아요취소</button>
-            </form>
-          <% else %>
-            <form action="/post/<%=post.id%>/like" method="post">
-            <button>좋아요</button>
-            </form>
-          <% end %>
-        </td>
+        <!--좋아요버튼-->
+        <!--xx명이 좋아합니다-->
+
+
         <td><%= link_to 'Show', post %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
