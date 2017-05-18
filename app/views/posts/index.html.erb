@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Posts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Content</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.title %></td>
+        <td><%= post.content %></td>
+        
+        <td><%= post.likes.size %>명이 좋아합니다</td>
+      
+        
+        <td>
+          <% if current_user.is_like?(post) %>
+            <form action="/post/<%=post.id%>/like" method="post">
+            <button>좋아요취소</button>
+            </form>
+          <% else %>
+            <form action="/post/<%=post.id%>/like" method="post">
+            <button>좋아요</button>
+            </form>
+          <% end %>
+        </td>
+        <td><%= link_to 'Show', post %></td>
+        <td><%= link_to 'Edit', edit_post_path(post) %></td>
+        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Post', new_post_path %>
