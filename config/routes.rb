@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: 'users/sessions' }
   resources :posts
   resources :comments
-    
+  
+  # 좋아요 기능을 수행하는 라우트 설정
   
   
   
